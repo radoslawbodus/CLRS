@@ -3,7 +3,7 @@
 void recursive_insertion_sort_c(int *nums, int n, int end)
 {
     // base case
-    if (end == 1)
+    if (end == 0)
         return;
     
     // Recursive step 
