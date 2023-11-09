@@ -5,7 +5,7 @@ from functools import wraps
 
 # decorator for C sorting functions
 def sorting_decorator(
-    func: Callable, recursive: bool = False
+    func: Callable, recursive: bool = False, recursive_dac: bool = False, 
 ) -> Callable[[list[int]], list[int]]:
     @wraps(func)
     def run_sort_alg(arr: list[int]) -> list[int]:
@@ -13,7 +13,10 @@ def sorting_decorator(
         n = ctypes.c_int(len(arr))
         arr_c = arr_type(*arr)
         if recursive:
-            func(ctypes.pointer(arr_c), n, ctypes.c_int(len(arr) - 1))
+            if recursive_dac:
+                func(ctypes.pointer(arr_c), ctypes.c_int(0), ctypes.c_int(len(arr)))
+            else:
+                func(ctypes.pointer(arr_c), n, ctypes.c_int(len(arr) - 1))
         else:
             func(ctypes.pointer(arr_c), n)
 

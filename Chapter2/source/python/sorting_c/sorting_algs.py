@@ -16,3 +16,8 @@ recursive_insertion_sort_c = helper.sorting_decorator(
 selection_sort_c = libc.selection_sort
 selection_sort_c.restype = None
 selection_sort_c = helper.sorting_decorator(selection_sort_c)
+
+merge_sort_c = libc.merge_sort_c
+merge_sort_c.restype = None
+merge_sort_c = helper.sorting_decorator(merge_sort_c, recursive=True, recursive_dac=True)
+

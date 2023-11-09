@@ -12,6 +12,7 @@ def insertion_sort_inplace(arr: list[int]) -> None:
         arr[j + 1] = key
 
 
+
 def insertion_sort_inc(arr: list[int]) -> list[int]:
     """
     Algorithm for insertion sort that sorts values in the increasing monotonic order that returns the sorted array and leaves the passed array untouched
